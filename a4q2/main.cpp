@@ -7,12 +7,37 @@
 //
 
 #include <iostream>
+#include <iomanip>
 
-int main(int argc, const char * argv[])
+using namespace std;
+
+int main()
 {
-
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    const int maxSize = 80;
+    int inputSize = 0;
+    int array[maxSize] = {-1};
+    bool sorted = true;
+    
+    cout << "Enter list: ";
+    cin >> inputSize;
+    for(int i = 0; i < inputSize; i++){
+        cin >> array[i];
+    }
+    cin.sync();
+    
+    for(int i = 1; i < inputSize; i++){
+            if(array[i-1] > array[i]){
+                sorted = false;
+                break;
+            }
+        }
+    
+    if(sorted == false){
+        cout << "The list is not sorted." << endl;
+    }else if(sorted == true){
+        cout << "The list is already sorted." << endl;
+    }
+    
     return 0;
 }
 
